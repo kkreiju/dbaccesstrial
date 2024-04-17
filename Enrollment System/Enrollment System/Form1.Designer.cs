@@ -51,14 +51,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label13 = new System.Windows.Forms.Label();
+            this.RequisiteTextBox = new System.Windows.Forms.TextBox();
+            this.SubjectDataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label13 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.SubjectDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -166,6 +166,10 @@
             // OfferingComboBox
             // 
             this.OfferingComboBox.FormattingEnabled = true;
+            this.OfferingComboBox.Items.AddRange(new object[] {
+            "1 - First Semester",
+            "2 - Second Semester",
+            "3 - Summer"});
             this.OfferingComboBox.Location = new System.Drawing.Point(174, 223);
             this.OfferingComboBox.Name = "OfferingComboBox";
             this.OfferingComboBox.Size = new System.Drawing.Size(121, 21);
@@ -174,6 +178,9 @@
             // CategoryComboBox
             // 
             this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Items.AddRange(new object[] {
+            "Lecture",
+            "Laboratory"});
             this.CategoryComboBox.Location = new System.Drawing.Point(174, 256);
             this.CategoryComboBox.Name = "CategoryComboBox";
             this.CategoryComboBox.Size = new System.Drawing.Size(121, 21);
@@ -182,6 +189,10 @@
             // CourseCodeComboBox
             // 
             this.CourseCodeComboBox.FormattingEnabled = true;
+            this.CourseCodeComboBox.Items.AddRange(new object[] {
+            "1 - BSIT",
+            "2 - BSIS",
+            "3 - ACT"});
             this.CourseCodeComboBox.Location = new System.Drawing.Point(174, 283);
             this.CourseCodeComboBox.Name = "CourseCodeComboBox";
             this.CourseCodeComboBox.Size = new System.Drawing.Size(121, 21);
@@ -276,34 +287,26 @@
             this.radioButton2.Text = "Co-requisite";
             this.radioButton2.UseVisualStyleBackColor = false;
             // 
-            // textBox5
+            // RequisiteTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(463, 133);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 23;
+            this.RequisiteTextBox.Location = new System.Drawing.Point(463, 133);
+            this.RequisiteTextBox.Name = "RequisiteTextBox";
+            this.RequisiteTextBox.Size = new System.Drawing.Size(100, 20);
+            this.RequisiteTextBox.TabIndex = 23;
+            this.RequisiteTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RequisiteTextBox_KeyPress);
             // 
-            // dataGridView1
+            // SubjectDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SubjectDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SubjectDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(371, 191);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(409, 150);
-            this.dataGridView1.TabIndex = 24;
-            // 
-            // label13
-            // 
-            this.label13.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label13.Location = new System.Drawing.Point(371, 80);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(409, 293);
-            this.label13.TabIndex = 25;
+            this.SubjectDataGridView.Location = new System.Drawing.Point(371, 191);
+            this.SubjectDataGridView.Name = "SubjectDataGridView";
+            this.SubjectDataGridView.Size = new System.Drawing.Size(409, 150);
+            this.SubjectDataGridView.TabIndex = 24;
             // 
             // Column1
             // 
@@ -325,14 +328,23 @@
             this.Column4.HeaderText = "Co/Pre";
             this.Column4.Name = "Column4";
             // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label13.Location = new System.Drawing.Point(371, 80);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(409, 293);
+            this.label13.TabIndex = 25;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.SubjectDataGridView);
+            this.Controls.Add(this.RequisiteTextBox);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label12);
@@ -359,7 +371,7 @@
             this.Controls.Add(this.label13);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubjectDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,8 +402,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox RequisiteTextBox;
+        private System.Windows.Forms.DataGridView SubjectDataGridView;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

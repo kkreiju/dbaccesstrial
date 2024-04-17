@@ -13,6 +13,7 @@ namespace Enrollment_System
 {
     public partial class Form1 : Form
     {
+        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +21,6 @@ namespace Enrollment_System
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
             OleDbConnection thisConnection = new OleDbConnection(connectionString);
             string Ole = "Select * From SUBJECTFILE";
             OleDbDataAdapter thisAdapter = new OleDbDataAdapter(Ole, thisConnection);
@@ -42,6 +42,49 @@ namespace Enrollment_System
             thisAdapter.Update(thisDataSet, "SubjectFile");
 
             MessageBox.Show("Recorded");
+        }
+
+        private void RequisiteTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                OleDbConnection thisConnection = new OleDbConnection(connectionString);
+                thisConnection.Open();
+                OleDbCommand thisCommand = thisConnection.CreateCommand();
+
+                string sql = "SELECT * FROM SUBJECTFILE";
+                thisCommand.CommandText = sql;
+
+                OleDbDataReader thisDataReader = thisCommand.ExecuteReader();
+                //
+                bool found = false;
+                string subjectCode = "";
+                string description = "";
+                string units = "";
+
+                while (thisDataReader.Read())
+                {
+                    // MessageBox.Show(thisDataReader["SFSUBJCODE"].ToString());
+                    if (thisDataReader["SFSUBJCODE"].ToString().Trim().ToUpper() == RequisiteTextBox.Text.Trim().ToUpper())
+                    {
+                        found = true;
+                        subjectCode = thisDataReader["SFSUBJCODE"].ToString();
+                        description = thisDataReader["SFSUBJDESC"].ToString();
+                        units = thisDataReader["SFSUBJUNITS"].ToString();
+                        break;
+                    //
+                    }
+                }
+
+                if (!found)
+                    MessageBox.Show("Subject Code Not Found");
+                else
+                {
+                    SubjectDataGridView.Rows[0].Cells[0].Value = subjectCode;
+                    SubjectDataGridView.Rows[0].Cells[1].Value = description;
+                    SubjectDataGridView.Rows[0].Cells[2].Value = units;
+                }
+            }
         }
     }
 }
