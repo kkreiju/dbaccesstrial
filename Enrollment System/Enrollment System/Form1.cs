@@ -33,10 +33,7 @@ namespace Enrollment_System
             thisRow["SFSUBJDESC"] = DescriptionTextBox.Text;
             thisRow["SFSUBJUNITS"] = UnitsTextBox.Text;
             thisRow["SFSUBJREGOFRNG"] = OfferingComboBox.SelectedIndex + 1;
-            if (CategoryComboBox.SelectedIndex == 0)
-                thisRow["SFSUBJCATEGORY"] = "LEC";
-            else
-                thisRow["SFSUBJCATEGORY"] = "LAB";
+            thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text.Substring(0, 3);
             thisRow["SFSUBJSTATUS"] = "AC";
             thisRow["SFSUBJCOURSECODE"] = CourseCodeComboBox.Text;
             thisRow["SFSUBJCURRCODE"] = CurriculumYearTextBox.Text;
