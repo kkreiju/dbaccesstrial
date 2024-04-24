@@ -167,8 +167,8 @@
             // 
             this.OfferingComboBox.FormattingEnabled = true;
             this.OfferingComboBox.Items.AddRange(new object[] {
-            "1 - First Semester",
-            "2 - Second Semester",
+            "1 - First Sem",
+            "2 - Second Sem",
             "3 - Summer"});
             this.OfferingComboBox.Location = new System.Drawing.Point(174, 223);
             this.OfferingComboBox.Name = "OfferingComboBox";
@@ -190,9 +190,9 @@
             // 
             this.CourseCodeComboBox.FormattingEnabled = true;
             this.CourseCodeComboBox.Items.AddRange(new object[] {
-            "1 - BSIT",
-            "2 - BSIS",
-            "3 - ACT"});
+            "BSIT",
+            "BSIS",
+            "ACT"});
             this.CourseCodeComboBox.Location = new System.Drawing.Point(174, 283);
             this.CourseCodeComboBox.Name = "CourseCodeComboBox";
             this.CourseCodeComboBox.Size = new System.Drawing.Size(121, 21);

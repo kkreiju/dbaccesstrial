@@ -29,11 +29,14 @@ namespace Enrollment_System
             thisAdapter.Fill(thisDataSet, "SubjectFile");
 
             DataRow thisRow = thisDataSet.Tables["SubjectFile"].NewRow();
-            thisRow["SFSUBJCODE"] = Convert.ToInt16(SubjectCodeTextBox.Text);
+            thisRow["SFSUBJCODE"] = Convert.ToInt32(SubjectCodeTextBox.Text);
             thisRow["SFSUBJDESC"] = DescriptionTextBox.Text;
             thisRow["SFSUBJUNITS"] = UnitsTextBox.Text;
-            thisRow["SFSUBJREGOFRNG"] = OfferingComboBox.Text.Substring(0, 1);
-            thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text.Substring(0, 1);
+            thisRow["SFSUBJREGOFRNG"] = OfferingComboBox.SelectedIndex + 1;
+            if (CategoryComboBox.SelectedIndex == 0)
+                thisRow["SFSUBJCATEGORY"] = "LEC";
+            else
+                thisRow["SFSUBJCATEGORY"] = "LAB";
             thisRow["SFSUBJSTATUS"] = "AC";
             thisRow["SFSUBJCOURSECODE"] = CourseCodeComboBox.Text; //textbox ni ha
             thisRow["SFSUBJCURRCODE"] = CurriculumYearTextBox.Text;
