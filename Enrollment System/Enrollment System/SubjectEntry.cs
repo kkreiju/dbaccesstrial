@@ -13,7 +13,8 @@ namespace Enrollment_System
 {
     public partial class SubjectEntry : Form
     {
-        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
+        //string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Saguisa.accdb";
+        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\arjay\Documents\Github\dbaccesstrial\Saguisa.accdb";
         public SubjectEntry()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace Enrollment_System
             thisRow["SFSUBJDESC"] = DescriptionTextBox.Text;
             thisRow["SFSUBJUNITS"] = UnitsTextBox.Text;
             thisRow["SFSUBJREGOFRNG"] = OfferingComboBox.SelectedIndex + 1;
-            thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text.Substring(0, 3);
+            thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text.Substring(0, 3).ToUpper();
             thisRow["SFSUBJSTATUS"] = "AC";
             thisRow["SFSUBJCOURSECODE"] = CourseCodeComboBox.Text;
             thisRow["SFSUBJCURRCODE"] = CurriculumYearTextBox.Text;

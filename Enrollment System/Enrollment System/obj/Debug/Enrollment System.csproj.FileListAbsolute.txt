@@ -10,3 +10,14 @@
 \\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Enrollment System\Enrollment System\obj\Debug\Enrollment System.pdb
 \\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.SubjectEntry.resources
 \\Server2\second semester 2023-2024\LAB802\79286_CC_APPSDEV22_1030_1230_PM_MW\79286-23220726\Desktop\FINAL\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.SubjectScheduleEntry.resources
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\bin\Debug\Enrollment System.exe.config
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\bin\Debug\Enrollment System.exe
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\bin\Debug\Enrollment System.pdb
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment System.csproj.AssemblyReference.cache
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.SubjectEntry.resources
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.Properties.Resources.resources
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment_System.SubjectScheduleEntry.resources
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment System.csproj.GenerateResource.cache
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment System.csproj.CoreCompileInputs.cache
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment System.exe
+C:\Users\arjay\Documents\Github\dbaccesstrial\Enrollment System\Enrollment System\obj\Debug\Enrollment System.pdb
