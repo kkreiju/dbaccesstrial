@@ -43,6 +43,28 @@ namespace Enrollment_System
             thisDataSet.Tables["SubjectFile"].Rows.Add(thisRow);
             thisAdapter.Update(thisDataSet, "SubjectFile");
 
+            //REQUISITE
+            if(RequisiteTextBox.Text != string.Empty)
+            {
+                Ole = "Select * From SUBJECTPREQFILE";
+                OleDbDataAdapter requisiteAdapter = new OleDbDataAdapter(Ole, thisConnection);
+                OleDbCommandBuilder requisiteBuilder = new OleDbCommandBuilder(requisiteAdapter);
+                DataSet requisiteDataSet = new DataSet();
+                requisiteAdapter.Fill(requisiteDataSet, "SubjectPreqFile");
+
+                DataRow requisiteRow = requisiteDataSet.Tables["SubjectPreqFile"].NewRow();
+                requisiteRow["SFSUBJCODE"] = SubjectCodeTextBox.Text;
+                requisiteRow["SUBJPRECODE"] = RequisiteTextBox.Text;
+                if (PreRequisiteRadioButton.Checked)
+                    requisiteRow["SUBJCATEGORY"] = "PR";
+                else if (CoRequisiteRadioButton.Checked)
+                    requisiteRow["SUBJCATEGORY"] = "CR";
+
+                requisiteDataSet.Tables["SubjectPreqFile"].Rows.Add(requisiteRow);
+                requisiteAdapter.Update(requisiteDataSet, "SubjectPreqFile");
+            }
+            PreRequisiteRadioButton.Checked = false;
+            CoRequisiteRadioButton.Checked = false;
             MessageBox.Show("Recorded");
         }
 
@@ -86,7 +108,34 @@ namespace Enrollment_System
                     SubjectDataGridView.Rows[0].Cells[1].Value = description;
                     SubjectDataGridView.Rows[0].Cells[2].Value = units;
                 }
+
+                //REQUISITE
+                OleDbConnection requisiteConnection = new OleDbConnection(connectionString);
+                requisiteConnection.Open();
+                OleDbCommand requisiteCommand = requisiteConnection.CreateCommand();
+
+                string requisitesql = "SELECT * FROM SUBJECTPREQFILE";
+                requisiteCommand.CommandText = requisitesql;
+
+                OleDbDataReader requisiteDataReader = requisiteCommand.ExecuteReader();
+                while (requisiteDataReader.Read())
+                {
+                    if (requisiteDataReader["SFSUBJCODE"].ToString().Trim().ToUpper() == RequisiteTextBox.Text.Trim().ToUpper())
+                    {
+                        SubjectDataGridView.Rows[0].Cells[3].Value = requisiteDataReader["SUBJPRECODE"].ToString().Trim().ToUpper();
+                        break;
+                    }
+                    else
+                        SubjectDataGridView.Rows[0].Cells[3].Value = string.Empty;
+                }
             }
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
         }
     }
 }

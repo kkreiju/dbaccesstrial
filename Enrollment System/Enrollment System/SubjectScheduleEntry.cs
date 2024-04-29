@@ -78,5 +78,12 @@ namespace Enrollment_System
 
             MessageBox.Show("Recorded");
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
+        }
     }
 }

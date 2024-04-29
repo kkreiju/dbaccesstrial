@@ -17,7 +17,9 @@ namespace Enrollment_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new SubjectEntry());
-            Application.Run(new SubjectScheduleEntry());
+            //Application.Run(new SubjectScheduleEntry());
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
         }
     }
 }
